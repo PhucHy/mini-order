@@ -16,10 +16,16 @@ class RoleSeeder extends Seeder
         $admin = Role::firstOrCreate(['name' => 'Admin']);
         $staff = Role::firstOrCreate(['name' => 'Staff']);
 
-        $user = User::firstOrCreate(
+        $user1 = User::firstOrCreate(
             ['email' => 'admin@gmail.com'],
             ['name' => 'Admin', 'password' => bcrypt('230300')]
         );
-        $user->assignRole('Admin');
+        $user1->assignRole('Admin');
+
+        $user2 = User::firstOrCreate(
+            ['email' => 'staff@gmail.com'],
+            ['name' => 'Staff', 'password' => bcrypt('123456789')]
+        );
+        $user2->assignRole('Staff');
     }
 }
